@@ -19,26 +19,29 @@
                     Simplify your workflow in minutes.
                 </p>
 
+
                 <!-- Form -->
-                <form class="mb-6">
+                <form class="mb-6" #loginForm="ngForm" (ngSubmit)="login(loginForm)">
 
                     <!-- Email -->
                     <div class="form-group">
                         <label class="form-label" for="email">
                             Email Address
                         </label>
-                        <input type="email" class="form-control" id="email" placeholder="name@address.com">
+                        <input type="email" class="form-control" id="email" placeholder="name@address.com" name="email"
+                            [(ngModel)]="payload.email" required>
                     </div>
 
-                    <!-- Password -->
+
                     <div class="form-group mb-5">
                         <label class="form-label" for="password">
                             Password
                         </label>
-                        <input type="password" class="form-control" id="password" placeholder="Enter your password">
+                        <input type="password" class="form-control" id="password" placeholder="Enter your password"
+                            name="password" [(ngModel)]="payload.password" required>
                     </div>
 
-                    <!-- Submit -->
+
                     <button class="btn w-100 btn-primary" type="submit">
                         Sign in
                     </button>
