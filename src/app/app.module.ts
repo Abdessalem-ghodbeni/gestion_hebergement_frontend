@@ -8,14 +8,23 @@ import { Error404Component } from './home/views/error404/error404.component';
 import { SigninComponent } from './home/views/signin/signin.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
+import { HttpClientModule } from '@angular/common/http';
+import { SignupComponent } from './home/views/signup/signup.component';
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     Error404Component,
     SigninComponent,
+    SignupComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, NgbModule, NgbDropdownModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    NgbModule,
+    NgbDropdownModule,
+    HttpClientModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })
