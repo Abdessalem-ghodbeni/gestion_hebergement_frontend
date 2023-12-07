@@ -1,1 +1,31 @@
-<p>update-foyer works!</p>
+<div class="container  mx-auto p-0 p-md-5 ">
+    <div class="row  ">
+        <div class="col-12 col-md-5 custum-card">
+            <div class="card custum-card w-100">
+
+                <h5 class="card-header custumer_color p-2 mt-3">Modifier Foyer</h5>
+                <div class="card-body w-100">
+                    <form [formGroup]="updateFormFoyer" (ngSubmit)="modifierFoyer()">
+                        <div class="mb-3">
+                            <label for="nom_Foyer" class="form-label">Nom foyer</label>
+                            <input type="text" class="form-control" id="nom_Foyer" aria-describedby="foyerName"
+                                formControlName="nomFoyer">
+
+                        </div>
+                        <div class="mb-3">
+                            <label for="capacity" class="form-label">Capacité foyer</label>
+                            <input type="number" class="form-control" id="capacity" formControlName="capaciteFoyer">
+                        </div>
+
+                        <button type="submit" class="btn custumer_color">Enregister</button>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+        <div class="col-12 col-md-7 ">
+            <img src="assets/back/assets/img/grammar correction-amico.svg" class="img-fluid w-75" alt="">
+
+        </div>
+    </div>
+</div>

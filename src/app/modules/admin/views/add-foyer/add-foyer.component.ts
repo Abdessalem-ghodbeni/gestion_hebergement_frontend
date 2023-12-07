@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { Bloc } from 'src/app/core/models/Bloc/bloc';
 import { Universite } from 'src/app/core/models/Universite/universite';
-import { Foyer } from 'src/app/core/models/foyer/foyer';
-import { BlocService } from 'src/app/core/services/Bloc/bloc.service';
+
 import { UniversityService } from 'src/app/core/services/Universite/university.service';
 import { FoyerService } from 'src/app/core/services/foyer/foyer.service';
 import Swal from 'sweetalert2';
@@ -18,7 +18,8 @@ export class AddFoyerComponent implements OnInit {
 
   constructor(
     private _universite_service: UniversityService,
-    private _foyer_service: FoyerService
+    private _foyer_service: FoyerService,
+    private _route: Router
   ) {}
   ngOnInit(): void {
     this.recupererAllUniversite();
@@ -71,18 +72,6 @@ export class AddFoyerComponent implements OnInit {
     });
   }
 
-  // addFoyer() {
-  //   // const payload_foyer = this.addFormFoyer.value;
-  //   const formdata = this.addFormFoyer.value;
-  //   const idUniversity = Number(formdata.idUniversite);
-  //   delete formdata.idUniversite;
-  //   if (this.addFormFoyer.valid && idUniversity !== undefined) {
-  //     this._foyer_service.AjouterFoyer(formdata, idUniversity).subscribe({
-  //       next: (data: any) => {},
-  //       error: () => {},
-  //     });
-  //   }
-  // }
   addFoyer() {
     const formdata = this.addFormFoyer.value;
     const payload_foyer: any = {
@@ -96,29 +85,22 @@ export class AddFoyerComponent implements OnInit {
 
     const idUniversite = Number(formdata.idUniversite);
 
-    if (this.addFormFoyer.valid && idUniversite !== undefined) {
-      this._foyer_service.AjouterFoyer(payload_foyer, idUniversite).subscribe({
-        next: () => {
-          Swal.fire({
-            icon: 'success',
-            title: 'Success!',
-            text: 'Operation completed successfully.',
-          });
-        },
-        error: () => {
-          Swal.fire({
-            icon: 'error',
-            title: 'Oops...',
-            text: 'Something went wrong!',
-          });
-        },
-      });
-    } else {
-      Swal.fire({
-        icon: 'error',
-        title: 'Oops...',
-        text: 'Invalid Data!',
-      });
-    }
+    this._foyer_service.AjouterFoyer(payload_foyer, idUniversite).subscribe({
+      next: () => {
+        Swal.fire({
+          icon: 'success',
+          title: 'Success!',
+          text: 'Operation completed successfully.',
+        });
+        this._route.navigate(['admin/liste_foyer']);
+      },
+      error: () => {
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'Something went wrong!',
+        });
+      },
+    });
   }
 }

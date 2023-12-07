@@ -1,6 +1,11 @@
+<div class="container text-center mt-5">
+    <h2>Ajouter un foyer </h2>
+    <p> <strong>dans Cette section présente un administrateur peut ajouter un foyer et l'asscocié a une université
+        </strong></p>
+</div>
 <div class="container custumer_container ">
-    <div class="card custum-card w-100 p-3">
-        <h5 class="card-header custumer_color p-2 mt-3">Ajouter Foyer</h5>
+    <div class="card custum-card w-75 p-3">
+        <h5 class="card-header text-white text-center bg-primary p-2 mt-3">Ajouter Foyer</h5>
         <div class="card-body ">
             <form [formGroup]="addFormFoyer" (ngSubmit)="addFoyer()">
                 <div class="mb-3">
@@ -43,8 +48,8 @@
                         </div>
                     </div>
                 </div>
-                <button type="submit" class="btn custumer_color">Enregister</button>
-                <button class="btn btn-outline-danger m-2" type="button" (click)="addBloc()">Ajouter un bloc </button>
+                <button type="submit" class="btn btn-primary">Enregister</button>
+                <button class="btn btn-outline-primary m-2" type="button" (click)="addBloc()">Ajouter un bloc </button>
             </form>
         </div>
     </div>

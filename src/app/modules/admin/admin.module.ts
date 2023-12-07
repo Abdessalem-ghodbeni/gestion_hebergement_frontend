@@ -7,8 +7,9 @@ import { AddFoyerComponent } from './views/add-foyer/add-foyer.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ListeFoyerComponent } from './views/liste-foyer/liste-foyer.component';
 import { UpdateFoyerComponent } from './views/update-foyer/update-foyer.component';
+import { DetailsFoyerComponent } from './views/details-foyer/details-foyer.component';
 @NgModule({
-  declarations: [AdminLayoutComponent, AddFoyerComponent, ListeFoyerComponent, UpdateFoyerComponent],
+  declarations: [AdminLayoutComponent, AddFoyerComponent, ListeFoyerComponent, UpdateFoyerComponent, DetailsFoyerComponent],
   imports: [CommonModule, AdminRoutingModule, ReactiveFormsModule],
 })
 export class AdminModule {

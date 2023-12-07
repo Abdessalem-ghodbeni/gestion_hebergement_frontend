@@ -1,12 +1,19 @@
-<div class="container  custumer-container mt-5">
+<div class="container text-center mt-5">
+    <h2>Liste des foyers</h2>
+    <p class="custumer-text"> <strong>Cette section présente une liste de foyers disponibles :</strong></p>
+</div>
+
+<div class="container   mt-5">
     <div class="card p-3 w-100">
-        <table class="table w-100 custumer_table">
+        <table class="table w-75custumer_table">
             <thead>
                 <tr>
                     <th scope="col">id foyer</th>
                     <th scope="col">Nom Foyer</th>
                     <th scope="col">Capacité</th>
+                    <th scope="col">universite associé</th>
                     <th scope="col">Actions</th>
+                    <th scope="col">Affectation</th>
 
                 </tr>
             </thead>
@@ -15,21 +22,34 @@
                     <th scope="row">{{item.idFoyer}}</th>
                     <td>{{item.nomFoyer}}</td>
                     <td>{{item.capaciteFoyer}}</td>
+
+                    <td><span class="badge text-bg-warning w-50"
+                            *ngIf="item.universite?.nomUniversite!=null">{{item.universite?.nomUniversite
+                            }}</span>
+                        <span class="badge text-bg-info w-50" *ngIf="item.universite?.nomUniversite==null">Pas
+                            d'association</span>
+                    </td>
                     <td>
 
-                        <div class="gap-1 mx-2">
+                        <div class="gap-1  ">
 
-                            <button class="custumer_btn" (click)="updateFoyer(item.idFoyer)">
+                            <button class="custumer_btn me-1" (click)="updateFoyer(item.idFoyer)">
                                 <i class="fas fa-pencil-alt text-purple"></i>
                             </button>
-                            <!-- <button class="custumer_btn" (click)="supprimerFoyer(item.idFoyer)"> -->
-                            <i class="fas fa-trash-alt text-danger"></i>
-                            <!-- Delete</button> -->
-                            <!-- <button class="custumer_btn" (click)="voirDetails(item.idFoyer)"><i
-                                    class="uil uil-info-circle red-icon"></i>datails</button> -->
-                            <i class="fas fa-eye"></i>
+                            <button class="custumer_btn mx-1" (click)="supprimerFoyer(item.idFoyer)">
+                                <i class="fas fa-trash-alt text-danger"></i>
+                            </button>
+                            <button class="custumer_btn mx-1" (click)="voirDetails(item.idFoyer)"><i
+                                    class="fas fa-eye"></i></button>
+
 
                         </div>
+                    </td>
+                    <td>
+                        <button class="btn btn-outline-primary w-75" *ngIf="item.universite==null"> Affecter </button>
+                        <button class="btn btn-outline-primary w-75" *ngIf="item.universite!=null" disabled>
+                            Désafecter
+                        </button>
                     </td>
 
                 </tr>

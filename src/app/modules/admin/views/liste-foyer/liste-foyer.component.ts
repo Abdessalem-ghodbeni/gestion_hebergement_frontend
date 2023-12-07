@@ -30,29 +30,32 @@ export class ListeFoyerComponent {
       .RecupererTousLesFoyer()
       .subscribe((data: any) => {
         this.ListeFoyer = data;
+        console.log('hero ', this.ListeFoyer);
       });
   }
 
   supprimerFoyer(id: number) {
-    return this._foyer_service.deleteFoyer(id).subscribe((data) => {
-      Swal.fire({
-        title: 'Are you sure?',
-        text: "You won't be able to revert this!",
-        icon: 'warning',
-        showCancelButton: true,
-        confirmButtonColor: '#3085d6',
-        cancelButtonColor: '#d33',
-        confirmButtonText: 'Yes, delete it!',
-      }).then((result) => {
-        if (result.isConfirmed) {
+    Swal.fire({
+      title: 'Are you sure?',
+      text: "You won't be able to revert this!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes, delete it!',
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this._foyer_service.deleteFoyer(id).subscribe(() => {
           Swal.fire({
             title: 'Deleted!',
             text: 'Your file has been deleted.',
             icon: 'success',
           });
           this.GetAllFoyer();
-        }
-      });
+        });
+        this.GetAllFoyer();
+      }
+      this.GetAllFoyer();
     });
   }
 
@@ -63,10 +66,10 @@ export class ListeFoyerComponent {
   }
 
   voirDetails(idFoyer: number) {
-    this._router.navigate(['/dashboard/details/foyer/', idFoyer]);
+    this._router.navigate(['/admin/details/foyer/', idFoyer]);
   }
   updateFoyer(idFoyer: number) {
-    this._router.navigate(['/dashboard/edit/foyer/', idFoyer]);
+    this._router.navigate(['/admin/edit/foyer/', idFoyer]);
   }
   getIdBloc(id: number) {
     this.selectedIdFoyer = id;

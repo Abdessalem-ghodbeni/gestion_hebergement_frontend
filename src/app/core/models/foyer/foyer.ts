@@ -5,7 +5,7 @@ export class Foyer {
   idFoyer!: number;
   nomFoyer!: string;
   capaciteFoyer!: number;
-  // universite?: Universite;
+  universite?: Universite;
 
   blocs?: Partial<Bloc>[];
 }

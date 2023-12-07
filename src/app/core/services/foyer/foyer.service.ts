@@ -41,7 +41,7 @@ export class FoyerService {
     return this._http.get(`${this.backend_url}/get/foyer/${idFoyer}`);
   }
   modifierFoyer(foyer: Foyer) {
-    return this._http.put(`${this.backend_url}/api/logement/edit`, foyer).pipe(
+    return this._http.put(`${this.backend_url}/edit`, foyer).pipe(
       map((response: any) => response),
       catchError((error) => {
         console.log('qulque chose mal passé', error);

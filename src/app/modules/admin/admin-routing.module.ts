@@ -3,6 +3,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 import { AddFoyerComponent } from './views/add-foyer/add-foyer.component';
 import { ListeFoyerComponent } from './views/liste-foyer/liste-foyer.component';
+import { UpdateFoyerComponent } from './views/update-foyer/update-foyer.component';
+import { DetailsFoyerComponent } from './views/details-foyer/details-foyer.component';
 
 const routes: Routes = [
   {
@@ -11,6 +13,8 @@ const routes: Routes = [
     children: [
       { path: 'add_foyer', component: AddFoyerComponent },
       { path: 'liste_foyer', component: ListeFoyerComponent },
+      { path: 'edit/foyer/:idFoyer', component: UpdateFoyerComponent },
+      { path: 'details/foyer/:idFoyer', component: DetailsFoyerComponent },
     ],
   },
 ];
