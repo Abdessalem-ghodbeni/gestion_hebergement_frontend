@@ -1,0 +1,42 @@
+<div class="container  custumer-container mt-5">
+    <div class="card p-3 w-100">
+        <table class="table w-100 custumer_table">
+            <thead>
+                <tr>
+                    <th scope="col">id foyer</th>
+                    <th scope="col">Nom Foyer</th>
+                    <th scope="col">Capacité</th>
+                    <th scope="col">Actions</th>
+
+                </tr>
+            </thead>
+            <tbody *ngFor="let item of ListeFoyer">
+                <tr>
+                    <th scope="row">{{item.idFoyer}}</th>
+                    <td>{{item.nomFoyer}}</td>
+                    <td>{{item.capaciteFoyer}}</td>
+                    <td>
+
+                        <div class="gap-1 mx-2">
+
+                            <button class="custumer_btn" (click)="updateFoyer(item.idFoyer)">
+                                <i class="fas fa-pencil-alt text-purple"></i>
+                            </button>
+                            <!-- <button class="custumer_btn" (click)="supprimerFoyer(item.idFoyer)"> -->
+                            <i class="fas fa-trash-alt text-danger"></i>
+                            <!-- Delete</button> -->
+                            <!-- <button class="custumer_btn" (click)="voirDetails(item.idFoyer)"><i
+                                    class="uil uil-info-circle red-icon"></i>datails</button> -->
+                            <i class="fas fa-eye"></i>
+
+                        </div>
+                    </td>
+
+                </tr>
+
+            </tbody>
+        </table>
+
+    </div>
+
+</div>

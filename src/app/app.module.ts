@@ -11,6 +11,7 @@ import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
 import { HttpClientModule } from '@angular/common/http';
 import { SignupComponent } from './home/views/signup/signup.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AdminModule } from './modules/admin/admin.module';
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,6 +28,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     HttpClientModule,
     ReactiveFormsModule,
     FormsModule,
+    AdminModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

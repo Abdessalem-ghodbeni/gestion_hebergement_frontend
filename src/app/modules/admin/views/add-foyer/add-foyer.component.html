@@ -1,0 +1,51 @@
+<div class="container custumer_container ">
+    <div class="card custum-card w-100 p-3">
+        <h5 class="card-header custumer_color p-2 mt-3">Ajouter Foyer</h5>
+        <div class="card-body ">
+            <form [formGroup]="addFormFoyer" (ngSubmit)="addFoyer()">
+                <div class="mb-3">
+                    <label for="nom_Foyer" class="form-label">Nom foyer</label>
+                    <input type="text" class="form-control" id="nom_Foyer" aria-describedby="foyerName"
+                        formControlName="nomFoyer">
+                </div>
+                <div class="mb-3">
+                    <label for="capacity" class="form-label">Capacité foyer</label>
+                    <input type="number" class="form-control" id="capacity" formControlName="capaciteFoyer">
+                </div>
+                <div class="mb-3">
+                    <label class="mb-3" for="nomUniversite">Université </label>
+                    <select class="form-select" aria-label="Default select example" formControlName="idUniversite"
+                        id="nomUniversite">
+                        <option value="" [attr.selected]="addFormFoyer.get('nomUniversite')?.value">Choisissez une
+                            université</option>
+
+                        <option *ngFor="let item of listeUniversite" [value]="item.idUniversite">{{item.nomUniversite}}
+                        </option>
+
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <div formArrayName="blocs" *ngFor="let bloc of blocsListe.controls; let i=index">
+                        <div [formGroupName]="i">
+
+                            <div class="d-flex justify-content-end m-2" *ngIf="i!=0"><button (click)="removeBloc(i)"
+                                    class="btn btn-outline-danger"><i class="bi bi-trash"></i>retier</button></div>
+                            <div class="mb-3">
+                                <label attr.for="{{'nomBloc'+i}}" class="form-label">Nom Bloc</label>
+                                <input type="text" class="form-control" attr.id="{{'nomBloc'+i}}"
+                                    formControlName="nomBloc">
+                            </div>
+                            <div class="mb-3">
+                                <label attr.for="{{'capaciteBloc'+i}}" class="form-label">Capacité Bloc</label>
+                                <input type="number" class="form-control" attr.id="{{'capaciteBloc'+i}}"
+                                    aria-describedby="capaciteBloc" formControlName="capaciteBloc">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button type="submit" class="btn custumer_color">Enregister</button>
+                <button class="btn btn-outline-danger m-2" type="button" (click)="addBloc()">Ajouter un bloc </button>
+            </form>
+        </div>
+    </div>
+</div>

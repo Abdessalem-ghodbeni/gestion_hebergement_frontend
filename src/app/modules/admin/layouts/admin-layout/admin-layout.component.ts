@@ -15,6 +15,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 export class AdminLayoutComponent implements OnInit {
   constructor(private renderer: ɵDomRendererFactory2, private el: ElementRef) {}
   ngOnInit(): void {}
+
   logout() {
     console.log('merci');
     const sidebarToggle = this.el.nativeElement.querySelector('#sidebarToggle');
