@@ -22,6 +22,7 @@ export class AdminLayoutComponent implements OnInit {
   ngOnInit(): void {}
   logoutAdmin() {
     this._router.navigate(['home']);
+    localStorage.clear();
   }
   logout() {
     console.log('merci');

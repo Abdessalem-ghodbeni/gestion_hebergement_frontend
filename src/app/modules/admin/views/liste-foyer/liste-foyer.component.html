@@ -9,13 +9,13 @@
         <div class="card bg-primary" *ngIf="showMe">
             <app-affecter-universite [inputData]="id_Foyer"> </app-affecter-universite>
         </div>
-        <div>
-            <div class="container w-75 mt-5">
+        <div *ngIf="!showMe">
+            <div class="container w-100 mt-5">
                 <label for="" class="mx-auto mb-3"> Rechercher foyer : </label>
                 <input class="w-100 mb-5" type="text" class="form-control" [(ngModel)]="searchTerm"
                     placeholder="Rechercher par nom" (ngModelChange)="searchArray()">
             </div>
-            <table class="table   custumer_table mt-5" *ngIf="!showMe">
+            <table class="table   custumer_table mt-5">
 
                 <thead>
                     <tr>

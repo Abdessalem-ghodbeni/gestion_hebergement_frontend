@@ -12,10 +12,19 @@
                     <label for="nom_Foyer" class="form-label">Nom foyer</label>
                     <input type="text" class="form-control" id="nom_Foyer" aria-describedby="foyerName"
                         formControlName="nomFoyer">
+                    <span *ngIf="addFormFoyer.get('nomFoyer')?.invalid && addFormFoyer.get('nomFoyer')?.touched"
+                        class="text-danger">
+                        Nom du foyer est requis.
+                    </span>
                 </div>
                 <div class="mb-3">
                     <label for="capacity" class="form-label">Capacité foyer</label>
                     <input type="number" class="form-control" id="capacity" formControlName="capaciteFoyer">
+                    <span
+                        *ngIf="addFormFoyer.get('capaciteFoyer')?.invalid && addFormFoyer.get('capaciteFoyer')?.touched"
+                        class="text-danger">
+                        NCapacité du foyer est requis.
+                    </span>
                 </div>
                 <div class="mb-3">
                     <label class="mb-3" for="nomUniversite">Université </label>
