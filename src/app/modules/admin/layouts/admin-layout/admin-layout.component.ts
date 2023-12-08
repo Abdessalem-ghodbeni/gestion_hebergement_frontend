@@ -5,7 +5,8 @@ import {
   ViewEncapsulation,
 } from '@angular/core';
 import { ɵDomRendererFactory2 } from '@angular/platform-browser';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-admin-layout',
   templateUrl: './admin-layout.component.html',
@@ -13,9 +14,15 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
   encapsulation: ViewEncapsulation.None,
 })
 export class AdminLayoutComponent implements OnInit {
-  constructor(private renderer: ɵDomRendererFactory2, private el: ElementRef) {}
+  constructor(
+    private renderer: ɵDomRendererFactory2,
+    private el: ElementRef,
+    private _router: Router
+  ) {}
   ngOnInit(): void {}
-
+  logoutAdmin() {
+    this._router.navigate(['home']);
+  }
   logout() {
     console.log('merci');
     const sidebarToggle = this.el.nativeElement.querySelector('#sidebarToggle');
@@ -26,11 +33,9 @@ export class AdminLayoutComponent implements OnInit {
         (event: { preventDefault: () => void }) => {
           event.preventDefault();
 
-          // Vérifier la présence de la classe
           const isSidebarToggled =
             document.body.classList.contains('sb-sidenav-toggled');
 
-          // Inverser la classe
           if (isSidebarToggled) {
             document.body.classList.remove('sb-sidenav-toggled');
           } else {

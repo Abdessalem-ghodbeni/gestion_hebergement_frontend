@@ -5,58 +5,106 @@
 
 <div class="container   mt-5">
     <div class="card p-3 w-100">
-        <table class="table w-75custumer_table">
-            <thead>
-                <tr>
-                    <th scope="col">id foyer</th>
-                    <th scope="col">Nom Foyer</th>
-                    <th scope="col">Capacité</th>
-                    <th scope="col">universite associé</th>
-                    <th scope="col">Actions</th>
-                    <th scope="col">Affectation</th>
 
-                </tr>
-            </thead>
-            <tbody *ngFor="let item of ListeFoyer">
-                <tr>
-                    <th scope="row">{{item.idFoyer}}</th>
-                    <td>{{item.nomFoyer}}</td>
-                    <td>{{item.capaciteFoyer}}</td>
+        <div class="card bg-primary" *ngIf="showMe">
+            <app-affecter-universite [inputData]="id_Foyer"> </app-affecter-universite>
+        </div>
+        <div>
+            <div class="container w-75 mt-5">
+                <label for="" class="mx-auto mb-3"> Rechercher foyer : </label>
+                <input class="w-100 mb-5" type="text" class="form-control" [(ngModel)]="searchTerm"
+                    placeholder="Rechercher par nom" (ngModelChange)="searchArray()">
+            </div>
+            <table class="table   custumer_table mt-5" *ngIf="!showMe">
 
-                    <td><span class="badge text-bg-warning w-50"
-                            *ngIf="item.universite?.nomUniversite!=null">{{item.universite?.nomUniversite
-                            }}</span>
-                        <span class="badge text-bg-info w-50" *ngIf="item.universite?.nomUniversite==null">Pas
-                            d'association</span>
-                    </td>
-                    <td>
+                <thead>
+                    <tr>
+                        <th scope="col">id foyer</th>
+                        <th scope="col">Nom Foyer</th>
+                        <th scope="col">Capacité</th>
+                        <th scope="col">universite associé</th>
+                        <th scope="col">Actions</th>
+                        <th scope="col">Affectation</th>
 
-                        <div class="gap-1  ">
+                    </tr>
+                </thead>
+                <tbody *ngFor="let item of ListeFoyer">
+                    <tr>
+                        <th scope="row">{{item.idFoyer}}</th>
+                        <td>{{item.nomFoyer}}</td>
+                        <td>{{item.capaciteFoyer}}</td>
 
-                            <button class="custumer_btn me-1" (click)="updateFoyer(item.idFoyer)">
-                                <i class="fas fa-pencil-alt text-purple"></i>
+                        <td><span class="badge text-bg-warning w-75"
+                                *ngIf="item.universite?.nomUniversite!=null">{{item.universite?.nomUniversite
+                                }}</span>
+                            <span class="badge text-bg-info w-75" *ngIf="item.universite?.nomUniversite==null">Pas
+                                d'association</span>
+                        </td>
+                        <td>
+
+                            <div class="gap-1  ">
+
+                                <button class="custumer_btn me-1" (click)="updateFoyer(item.idFoyer)">
+                                    <i class="fas fa-pencil-alt text-purple"></i>
+                                </button>
+                                <button class="custumer_btn mx-1" (click)="supprimerFoyer(item.idFoyer)">
+                                    <i class="fas fa-trash-alt text-danger"></i>
+                                </button>
+                                <button class="custumer_btn mx-1" (click)="voirDetails(item.idFoyer)"><i
+                                        class="fas fa-eye"></i></button>
+
+
+                            </div>
+                        </td>
+                        <!-- data-bs-target="#exampleModalToggle" data-bs-toggle="modal" -->
+                        <td>
+                            <button class="btn btn-outline-primary w-75" *ngIf="item.universite==null"
+                                (click)="sendId(item.idFoyer)">
+                                Affecter </button>
+                            <button class="btn btn-outline-primary w-75" *ngIf="item.universite!=null" disabled>
+                                Désafecter
                             </button>
-                            <button class="custumer_btn mx-1" (click)="supprimerFoyer(item.idFoyer)">
-                                <i class="fas fa-trash-alt text-danger"></i>
-                            </button>
-                            <button class="custumer_btn mx-1" (click)="voirDetails(item.idFoyer)"><i
-                                    class="fas fa-eye"></i></button>
+                        </td>
 
+                    </tr>
 
-                        </div>
-                    </td>
-                    <td>
-                        <button class="btn btn-outline-primary w-75" *ngIf="item.universite==null"> Affecter </button>
-                        <button class="btn btn-outline-primary w-75" *ngIf="item.universite!=null" disabled>
-                            Désafecter
-                        </button>
-                    </td>
-
-                </tr>
-
-            </tbody>
-        </table>
-
+                </tbody>
+            </table>
+        </div>
     </div>
 
 </div>
+
+
+
+
+<!-- 
+
+<div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel"
+    tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalToggleLabel">Affecter Université </h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form ">
+                    <div class="form-check my-2" *ngFor="let universite of listeUniversite">
+                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1"
+                            [value]="universite.idUniversite">
+                        <label class="form-check-label" for="flexRadioDefault1">
+                            {{universite.nomUniversite}}
+                        </label>
+                    </div>
+
+
+
+                </form>
+                <button class=" btn btn-outline-primary" type="submit">Confirmer </button>
+                <button class=" btn btn-outline-danger" type="button" (click)="resetForm()">Annuler </button>
+            </div>
+
+        </div>
+    </div>
+</div> -->

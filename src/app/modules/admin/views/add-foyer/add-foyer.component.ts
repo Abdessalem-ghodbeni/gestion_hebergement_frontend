@@ -25,7 +25,6 @@ export class AddFoyerComponent implements OnInit {
     this.recupererAllUniversite();
   }
   get blocsListe(): FormArray {
-    // return <FormArray> this.AddFoyerForm.get("blocs");
     return this.addFormFoyer.get('blocs') as FormArray;
   }
   addBloc(): void {

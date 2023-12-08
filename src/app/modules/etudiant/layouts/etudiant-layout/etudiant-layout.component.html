@@ -1,46 +1,12 @@
 <body class="bg-light">
 
-  <!-- MODALS -->
-  <!-- Example -->
-
-
-
-
-
-
-
-
-
-
-
-
-  <!-- NAVBAR -->
-
-
-  <!-- BREADCRUMB -->
   <nav class="bg-dark d-md-none">
     <div class="container-md">
       <div class="row align-items-center">
-        <div class="col">
 
-          <!-- Breadcrumb -->
-          <ol class="breadcrumb">
-            <li class="breadcrumb-item">
-              <span class="text-white">
-                Account
-              </span>
-            </li>
-            <li class="breadcrumb-item active" aria-current="page">
-              <span class="text-white">
-                General
-              </span>
-            </li>
-          </ol>
-
-        </div>
         <div class="col-auto">
 
-          <!-- Toggler -->
+
           <div class="navbar-dark">
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#sidenavCollapse"
               aria-controls="sidenavCollapse" aria-expanded="false" aria-label="Toggle navigation">
@@ -49,11 +15,11 @@
           </div>
 
         </div>
-      </div> <!-- / .row -->
-    </div> <!-- / .container -->
+      </div>
+    </div>
   </nav>
 
-  <!-- HEADER -->
+
   <header class="bg-dark pt-9 pb-11 d-none d-md-block">
     <div class="container-md">
       <div class="row align-items-center">
@@ -61,19 +27,19 @@
 
           <!-- Heading -->
           <h1 class="fw-bold text-white mb-2">
-            Account Settings
+            slouma@gmail.com
           </h1>
 
           <!-- Text -->
           <p class="fs-lg text-white text-opacity-75 mb-0">
-            Settings for <a class="text-reset" href="mailto:dhgamache@gmail.com">dhgamache@gmail.com</a>
+
           </p>
 
         </div>
         <div class="col-auto">
 
           <!-- Button -->
-          <button class="btn btn-sm bg-gray-300 bg-opacity-20 bg-opacity-25-hover text-white">
+          <button class="btn btn-sm bg-gray-300 bg-opacity-20 bg-opacity-25-hover text-white" (click)="logout()">
             Log Out
           </button>
 
@@ -103,39 +69,34 @@
                 <!-- List -->
                 <ul class="card-list list text-gray-700 mb-6">
                   <li class="list-item active">
-                    <a class="list-link text-reset" href="account-general.html">
-                      General
+                    <a class="list-link text-reset" routerLink="liste_foyer">
+                      liste Foyer
                     </a>
                   </li>
                   <li class="list-item">
                     <a class="list-link text-reset" href="account-security.html">
-                      Security
-                    </a>
+                      Liste bloc </a>
                   </li>
                   <li class="list-item">
                     <a class="list-link text-reset" href="account-notifications.html">
-                      Notifications
+                      Universite
                     </a>
                   </li>
                 </ul>
 
                 <!-- Heading -->
                 <h6 class="fw-bold text-uppercase mb-3">
-                  Billing
+                  Chambres
                 </h6>
 
                 <!-- List -->
                 <ul class="card-list list text-gray-700 mb-0">
                   <li class="list-item">
                     <a class="list-link text-reset" href="billing-plans-and-payment.html">
-                      Plans & Payment
+                      Mes Reservations
                     </a>
                   </li>
-                  <li class="list-item">
-                    <a class="list-link text-reset" href="billing-users.html">
-                      Users
-                    </a>
-                  </li>
+
                 </ul>
 
               </div>
@@ -376,188 +337,14 @@
     </div>
   </div>
 
-  <!-- FOOTER -->
   <footer class="py-8 py-md-11 bg-dark">
     <div class="container">
       <div class="row">
         <div class="col-12 col-md-4 col-lg-3">
 
-          <!-- Brand -->
-          <img src="assets/img/brand.svg" alt="..." class="footer-brand img-fluid mb-2">
-
-          <!-- Text -->
-          <p class="text-gray-700 mb-2">
-            A better way to build.
-          </p>
-
-          <!-- Social -->
-          <ul class="list-unstyled list-inline list-social mb-6 mb-md-0">
-            <li class="list-inline-item list-social-item me-3">
-              <a href="#!" class="text-decoration-none">
-                <img src="assets/img/icons/social/instagram.svg" class="list-social-icon" alt="...">
-              </a>
-            </li>
-            <li class="list-inline-item list-social-item me-3">
-              <a href="#!" class="text-decoration-none">
-                <img src="assets/img/icons/social/facebook.svg" class="list-social-icon" alt="...">
-              </a>
-            </li>
-            <li class="list-inline-item list-social-item me-3">
-              <a href="#!" class="text-decoration-none">
-                <img src="assets/img/icons/social/twitter.svg" class="list-social-icon" alt="...">
-              </a>
-            </li>
-            <li class="list-inline-item list-social-item">
-              <a href="#!" class="text-decoration-none">
-                <img src="assets/img/icons/social/pinterest.svg" class="list-social-icon" alt="...">
-              </a>
-            </li>
-          </ul>
 
         </div>
-        <div class="col-6 col-md-4 col-lg-2">
 
-          <!-- Heading -->
-          <h6 class="fw-bold text-uppercase text-gray-700">
-            Products
-          </h6>
-
-          <!-- List -->
-          <ul class="list-unstyled text-body-secondary mb-6 mb-md-8 mb-lg-0">
-            <li class="mb-3">
-              <a href="#!" class="text-reset">
-                Page Builder
-              </a>
-            </li>
-            <li class="mb-3">
-              <a href="#!" class="text-reset">
-                UI Kit
-              </a>
-            </li>
-            <li class="mb-3">
-              <a href="#!" class="text-reset">
-                Styleguide
-              </a>
-            </li>
-            <li class="mb-3">
-              <a href="#!" class="text-reset">
-                Documentation
-              </a>
-            </li>
-            <li>
-              <a href="#!" class="text-reset">
-                Changelog
-              </a>
-            </li>
-          </ul>
-
-        </div>
-        <div class="col-6 col-md-4 col-lg-2">
-
-          <!-- Heading -->
-          <h6 class="fw-bold text-uppercase text-gray-700">
-            Services
-          </h6>
-
-          <!-- List -->
-          <ul class="list-unstyled text-body-secondary mb-6 mb-md-8 mb-lg-0">
-            <li class="mb-3">
-              <a href="#!" class="text-reset">
-                Documentation
-              </a>
-            </li>
-            <li class="mb-3">
-              <a href="#!" class="text-reset">
-                Changelog
-              </a>
-            </li>
-            <li class="mb-3">
-              <a href="#!" class="text-reset">
-                Pagebuilder
-              </a>
-            </li>
-            <li>
-              <a href="#!" class="text-reset">
-                UI Kit
-              </a>
-            </li>
-          </ul>
-
-        </div>
-        <div class="col-6 col-md-4 offset-md-4 col-lg-2 offset-lg-0">
-
-          <!-- Heading -->
-          <h6 class="fw-bold text-uppercase text-gray-700">
-            Connect
-          </h6>
-
-          <!-- List -->
-          <ul class="list-unstyled text-body-secondary mb-0">
-            <li class="mb-3">
-              <a href="#!" class="text-reset">
-                Page Builder
-              </a>
-            </li>
-            <li class="mb-3">
-              <a href="#!" class="text-reset">
-                UI Kit
-              </a>
-            </li>
-            <li class="mb-3">
-              <a href="#!" class="text-reset">
-                Styleguide
-              </a>
-            </li>
-            <li class="mb-3">
-              <a href="#!" class="text-reset">
-                Documentation
-              </a>
-            </li>
-            <li class="mb-3">
-              <a href="#!" class="text-reset">
-                Changelog
-              </a>
-            </li>
-            <li class="mb-3">
-              <a href="#!" class="text-reset">
-                Documentation
-              </a>
-            </li>
-            <li>
-              <a href="#!" class="text-reset">
-                Changelog
-              </a>
-            </li>
-          </ul>
-
-        </div>
-        <div class="col-6 col-md-4 col-lg-2">
-
-          <!-- Heading -->
-          <h6 class="fw-bold text-uppercase text-gray-700">
-            Legal
-          </h6>
-
-          <!-- List -->
-          <ul class="list-unstyled text-body-secondary mb-0">
-            <li class="mb-3">
-              <a href="#!" class="text-reset">
-                Documentation
-              </a>
-            </li>
-            <li class="mb-3">
-              <a href="#!" class="text-reset">
-                Changelog
-              </a>
-            </li>
-            <li>
-              <a href="#!" class="text-reset">
-                Pagebuilder
-              </a>
-            </li>
-          </ul>
-
-        </div>
-      </div> <!-- / .row -->
-    </div> <!-- / .container -->
+      </div>
+    </div>
   </footer>

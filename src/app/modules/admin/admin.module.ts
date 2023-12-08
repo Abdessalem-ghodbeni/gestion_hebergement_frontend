@@ -4,13 +4,21 @@ import { CommonModule } from '@angular/common';
 import { AdminRoutingModule } from './admin-routing.module';
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 import { AddFoyerComponent } from './views/add-foyer/add-foyer.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ListeFoyerComponent } from './views/liste-foyer/liste-foyer.component';
 import { UpdateFoyerComponent } from './views/update-foyer/update-foyer.component';
 import { DetailsFoyerComponent } from './views/details-foyer/details-foyer.component';
+import { AffecterUniversiteComponent } from './views/affecter-universite/affecter-universite.component';
 @NgModule({
-  declarations: [AdminLayoutComponent, AddFoyerComponent, ListeFoyerComponent, UpdateFoyerComponent, DetailsFoyerComponent],
-  imports: [CommonModule, AdminRoutingModule, ReactiveFormsModule],
+  declarations: [
+    AdminLayoutComponent,
+    AddFoyerComponent,
+    ListeFoyerComponent,
+    UpdateFoyerComponent,
+    DetailsFoyerComponent,
+    AffecterUniversiteComponent,
+  ],
+  imports: [CommonModule, AdminRoutingModule, ReactiveFormsModule, FormsModule],
 })
 export class AdminModule {
   constructor() {

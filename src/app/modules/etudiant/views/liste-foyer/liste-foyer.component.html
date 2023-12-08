@@ -1,0 +1,60 @@
+<div class="container text-center mt-5">
+    <h2>Liste des foyers</h2>
+    <p class="custumer-text"> <strong>Cette section présente une liste de foyers disponibles :</strong></p>
+</div>
+
+
+
+
+
+
+<div class="container   mt-5">
+    <div class="card p-3 w-100">
+        <div class="container w-100 mt-5">
+            <input class="w-100 custumer-border" type="text" class="form-control" [(ngModel)]="searchTerm"
+                placeholder="Rechercher par nom" (input)="searchArray()">
+        </div>
+
+        <table class="table w-75custumer_table">
+
+            <thead>
+                <tr>
+                    <th scope="col">id foyer</th>
+                    <th scope="col">Nom Foyer</th>
+                    <th scope="col">Capacité</th>
+                    <th scope="col">universite associé</th>
+                    <th scope="col">Actions</th>
+
+
+                </tr>
+            </thead>
+            <tbody *ngFor="let item of ListeFoyer">
+                <tr>
+                    <th scope="row">{{item.idFoyer}}</th>
+                    <td>{{item.nomFoyer}}</td>
+                    <td>{{item.capaciteFoyer}}</td>
+
+                    <td><span *ngIf="item.universite?.nomUniversite!=null">{{item.universite?.nomUniversite
+                            }}</span>
+                        <span *ngIf="item.universite?.nomUniversite==null">Pas
+                            d'association</span>
+                    </td>
+                    <td>
+
+
+
+
+                        <button class="custumer_btn mx-1" (click)="showMee(item.idFoyer)"><i
+                                class="fas fa-eye"></i></button>
+
+
+                    </td>
+
+                </tr>
+
+            </tbody>
+        </table>
+
+    </div>
+
+</div>

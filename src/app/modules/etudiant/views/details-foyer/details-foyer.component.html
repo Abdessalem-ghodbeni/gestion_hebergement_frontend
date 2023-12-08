@@ -1,0 +1,27 @@
+<div class="card-body">
+    <h5 class="card-title text-center"> <span>Information du foyer dont le numéro est : {{idFoyer}} </span></h5>
+
+    <div class="list-group">
+        <a class="list-group-item list-group-item-action  liste-item">
+            <strong> Foyer d'identifiant : {{idFoyer}}</strong>
+        </a>
+        <a class="list-group-item list-group-item-action"> <strong> le nom du foyer : {{foyer.nomFoyer}}
+            </strong></a>
+        <a class="list-group-item list-group-item-action"> <strong> capacité foyer :
+                {{foyer.capaciteFoyer}} </strong></a>
+        <a class="list-group-item list-group-item-action">
+            <ul *ngIf="foyer.universite!=null">
+                <li> <strong> Université associe </strong></li>
+                <ul>
+                    <li><strong>identifiant d'université : {{foyer.universite?.idUniversite}} </strong>
+                    </li>
+                    <li> <strong>{{foyer.universite?.nomUniversite}} </strong></li>
+                    <li> <strong>{{foyer?.universite?.adresse}} </strong></li>
+                </ul>
+            </ul>
+            <span class="badge text-bg-danger" *ngIf="foyer.universite==null">Pas d'université associé
+            </span>
+
+        </a>
+    </div>
+</div>

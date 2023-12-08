@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Universite } from 'src/app/core/models/Universite/universite';
 import { Foyer } from 'src/app/core/models/foyer/foyer';
+import { UniversityService } from 'src/app/core/services/Universite/university.service';
 import { FoyerService } from 'src/app/core/services/foyer/foyer.service';
 import Swal from 'sweetalert2';
 
@@ -11,7 +14,18 @@ import Swal from 'sweetalert2';
 })
 export class ListeFoyerComponent {
   ListeFoyer: Foyer[] = [];
-  selectedIdFoyer!: number;
+  showMe: boolean = false;
+  id_Foyer!: number;
+  searchTerm: string = '';
+  searchArray() {
+    if (this.searchTerm === '') {
+      this.ListeFoyer = [...this.ListeFoyer];
+    } else {
+      this.ListeFoyer = this.ListeFoyer.filter((item) =>
+        item.nomFoyer.toLowerCase().includes(this.searchTerm.toLowerCase())
+      );
+    }
+  }
   constructor(private _foyer_service: FoyerService, private _router: Router) {}
   ngOnInit(): void {
     if (this.GetAllFoyer() == null) {
@@ -32,6 +46,11 @@ export class ListeFoyerComponent {
         this.ListeFoyer = data;
         console.log('hero ', this.ListeFoyer);
       });
+  }
+  sendId(id: number) {
+    this.id_Foyer = id;
+    console.log(this.id_Foyer);
+    this.showMe = !this.showMe;
   }
 
   supprimerFoyer(id: number) {
@@ -70,8 +89,5 @@ export class ListeFoyerComponent {
   }
   updateFoyer(idFoyer: number) {
     this._router.navigate(['/admin/edit/foyer/', idFoyer]);
-  }
-  getIdBloc(id: number) {
-    this.selectedIdFoyer = id;
   }
 }
