@@ -72,10 +72,9 @@ export class ListeFoyerComponent {
           });
           this.GetAllFoyer();
         });
-        this.GetAllFoyer();
       }
-      this.GetAllFoyer();
     });
+    this.GetAllFoyer();
   }
 
   getFoyerParId() {

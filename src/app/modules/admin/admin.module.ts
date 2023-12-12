@@ -9,6 +9,9 @@ import { ListeFoyerComponent } from './views/liste-foyer/liste-foyer.component';
 import { UpdateFoyerComponent } from './views/update-foyer/update-foyer.component';
 import { DetailsFoyerComponent } from './views/details-foyer/details-foyer.component';
 import { AffecterUniversiteComponent } from './views/affecter-universite/affecter-universite.component';
+import { AddBlocComponent } from './views/add-bloc/add-bloc.component';
+import { DetailBlocComponent } from './views/detail-bloc/detail-bloc.component';
+import { ListeBlocComponent } from './views/liste-bloc/liste-bloc.component';
 @NgModule({
   declarations: [
     AdminLayoutComponent,
@@ -17,6 +20,9 @@ import { AffecterUniversiteComponent } from './views/affecter-universite/affecte
     UpdateFoyerComponent,
     DetailsFoyerComponent,
     AffecterUniversiteComponent,
+    AddBlocComponent,
+    DetailBlocComponent,
+    ListeBlocComponent,
   ],
   imports: [CommonModule, AdminRoutingModule, ReactiveFormsModule, FormsModule],
 })
